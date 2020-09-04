@@ -3,6 +3,12 @@ language: python
 python:
   - "3.6"
 
+before_install:
+  - python --version
+  - pip install -U pip
+  - pip install -U pytest
+  - pip install codecov
+  
 install:
   - pip install -e .
   - pip install ."[tests]"
@@ -16,16 +22,19 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - py.test --cov=tests tests/
+  - pytest --cov=tests tests/
   - ./build_docker.sh
   - ./publish_via_travis.sh
-
+  
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - codeclimate-test-reporter --file
 
 services:
   - docker
+
+after success:
+  - codecov
 
 env:
   global:
