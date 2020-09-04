@@ -8,6 +8,8 @@ A Slack bot for GitHub organization management.
 :license: Apache, see LICENSE for more details.
 """
 
+import sys
+import os.path
 
 from setuptools import setup, find_packages
 
