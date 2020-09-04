@@ -7,8 +7,7 @@ A Slack bot for GitHub organization management.
 :copyright: (c) 2017 by Netflix, see AUTHORS for more
 :license: Apache, see LICENSE for more details.
 """
-import sys
-import os.path
+
 
 from setuptools import setup, find_packages
 
