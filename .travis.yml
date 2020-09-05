@@ -19,7 +19,7 @@ script:
   - py.test --cov=tests tests/
   - ./build_docker.sh
   - ./publish_via_travis.sh
-  - coverage run -m unittest discover
+  - coverage run
   - coverage xml
   
 after_script:
