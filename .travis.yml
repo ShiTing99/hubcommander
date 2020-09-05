@@ -17,9 +17,8 @@ before_script:
 
 script:
   - py.test --cov=tests tests/
-  - ./build_docker.sh
-  - ./publish_via_travis.sh
   - coverage run
+  - coverage xml
   
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
