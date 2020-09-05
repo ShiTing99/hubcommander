@@ -19,7 +19,8 @@ script:
   - py.test --cov=tests tests/
   - ./build_docker.sh
   - ./publish_via_travis.sh
-   - coverage xml
+  - coverage run -m unittest discover
+  - coverage xml
   
 after_script:
   - ./cc-test-reporter after-build --coverage-input-type coverage.py --exit-code $TRAVIS_TEST_RESULT
