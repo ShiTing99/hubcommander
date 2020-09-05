@@ -17,7 +17,7 @@ before_script:
 
 script:
   - py.test --cov=tests tests/
-  - coverage run
+  - coverage help
   - coverage xml
   
 after_script:
