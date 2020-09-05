@@ -24,6 +24,7 @@ after_script:
   - codeclimate-test-reporter --file FILE
  - ./cc-test-reporter format-coverage -t lcov coverage/lcov.info
  - ./cc-test-reporter upload-coverage
+ 
 services:
   - docker
 
