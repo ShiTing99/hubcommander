@@ -21,9 +21,9 @@ script:
   - coverage json
   
 after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - ./cc-test-reporter format-coverage -t coverage.py
   - ./cc-test-reporter upload-coverage
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   
 services:
   - docker
