@@ -19,13 +19,11 @@ script:
   - py.test --cov=tests tests/
   - ./build_docker.sh
   - ./publish_via_travis.sh
-  - py.test --cov=proj --cov-config .coveragerc
-  - coverage xml
   
 after_script:
   - ./cc-test-reporter after-build --coverage-input-type coverage.py --exit-code $TRAVIS_TEST_RESULT
-  - ./cc-test-reporter format-coverage -t coverage.py -o ./.coverage
-  - ./cc-test-reporter upload-coverage
+  - ./cc-test-reporter format-coverage --coverage-input-type covearge.py < /tmp/coverage.xml
+  - ./cc-test-reporter upload-coverage --id a199ef9c62ad2ca8c1f520bfe950eeeda67ed4ad08ece334514a0244a1da9ff2
 
 services:
   - docker
