@@ -21,11 +21,10 @@ script:
   - ./publish_via_travis.sh
   
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-  - codeclimate-test-reporter --file FILE
-  - ./cc-test-reporter format-coverage -t lcov coverage/lcov.info
+  - ./cc-test-reporter format-coverage -t coverage.py
   - ./cc-test-reporter upload-coverage
- 
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  
 services:
   - docker
 
